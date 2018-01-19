@@ -24,6 +24,10 @@ body {
 	width: 90%;
 }
 
+.hamburger:focus {
+	outline: none;
+}
+
 html .hamburger {
 	padding: 0;
 }
