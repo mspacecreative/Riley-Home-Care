@@ -245,12 +245,15 @@ nav li a {
 	width: 100%;
 	padding: 10px;
 	border: none;
+	-webkit-border-radius:0; 
+	border-radius:0;
 }
 
 .wpcf7-submit {
-	background: #669966;
+	background: #84b756;
 	font-family: "myriad-pro-condensed", 'Myriad Pro', sans-serif;
 	text-transform: uppercase;
+	color: #fff;
 }
 
 .email-form p:last-of-type {
