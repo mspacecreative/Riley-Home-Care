@@ -33,7 +33,7 @@ a, .hamburger {
 }
 
 .hamburger-inner, .hamburger-inner:after, .hamburger-inner:before {
-	background-color: #999;
+	background-color: #000e50;
 }
 
 .hamburger {
