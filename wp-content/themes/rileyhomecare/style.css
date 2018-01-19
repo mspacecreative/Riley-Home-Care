@@ -12,7 +12,7 @@
 
 body {
 	background-image: radial-gradient(circle at center,#fff 45%,#c9c9c9);
-	font-family: "myriad-pro",sans-serif;
+	font-family: "myriad-pro", 'Myriad Pro', sans-serif;
 }
 
 #main-content {
@@ -61,6 +61,12 @@ h3, h4 {
 	color: #333;
 }
 
+h4 {
+	font-size: 20px;
+	font-weight: 700;
+	color: #666;
+}
+
 h2 {
 	line-height: 1.5em;
 }
@@ -68,12 +74,12 @@ h2 {
 .entry-content ul {
 	padding-left: 18px;
 	color: #333;
-	font-size: 15px;
+	font-size: 17px;
 }
 
 .entry-content p {
 	color: #333;
-	font-size: 15px;
+	font-size: 17px;
 	padding: 0;
 	margin-bottom: 15px;
 }
@@ -185,6 +191,10 @@ h1.entry-title {
 	z-index: 1;
 }
 
+nav li a {
+	font-size: 18px;
+}
+
 .bottom-shadow:after {
 	position: absolute;
 	content:'';
@@ -237,7 +247,7 @@ h1.entry-title {
 
 .wpcf7-submit {
 	background: #669966;
-	font-family: "myriad-pro-condensed", sans-serif;
+	font-family: "myriad-pro-condensed", 'Myriad Pro', sans-serif;
 	text-transform: uppercase;
 }
 

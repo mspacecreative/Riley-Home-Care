@@ -11,7 +11,7 @@ function my_theme_enqueue_styles() {
     );
 }
 
-function removeSocialCss() {
+function footer_scripts() {
 	
 	wp_register_script('my-scripts', get_stylesheet_directory_uri() . '/js/scripts.js', array('jquery'), '1.0.0', true);
 	wp_enqueue_script('my-scripts');
@@ -22,12 +22,7 @@ function remove_some_widgets(){
 	unregister_sidebar( 'sidebar-5' );
 }
 
-function enqueue_javascript() {
-	
-}
-
 // ACTIONS
 add_action( 'wp_enqueue_scripts', 'my_theme_enqueue_styles' );
-add_action('init', 'removeSocialCss');
+add_action('init', 'footer_scripts');
 add_action( 'widgets_init', 'remove_some_widgets', 11 );
-
