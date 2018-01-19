@@ -20,7 +20,7 @@ body {
 	margin: auto;
 }
 
-.container {
+.container, .et_pb_fullwidth_header .et_pb_fullwidth_header_container, .et_pb_fullwidth_header .et_pb_fullwidth_header_container.center .header-content {
 	width: 90%;
 }
 
@@ -270,6 +270,10 @@ h1.entry-title {
 
 .hero {
 	height: 350px;
+}
+
+.hero-overlay .header-content {
+	padding: 25px;
 }
 
 .white-bg-block {
