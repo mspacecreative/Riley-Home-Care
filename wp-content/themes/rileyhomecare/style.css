@@ -29,7 +29,7 @@ body {
 }
 
 .hamburger:hover {
-	display: none;
+	opacity: 1;
 }
 
 html .hamburger {
