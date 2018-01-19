@@ -312,3 +312,10 @@ h1.entry-title {
 	height: 250px;
 }
 }
+
+@media (max-width: 1080px) {
+
+#et-top-navigation {
+	opacity: 0;
+}
+}
