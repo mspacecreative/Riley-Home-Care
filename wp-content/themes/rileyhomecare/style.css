@@ -20,6 +20,14 @@ body {
 	margin: auto;
 }
 
+.container {
+	width: 90%;
+}
+
+html .hamburger {
+	padding: 0;
+}
+
 .hero {
 	position: relative;
 	height: 500px;
