@@ -28,6 +28,10 @@ body {
 	outline: none;
 }
 
+.hamburger:hover {
+	display: none;
+}
+
 html .hamburger {
 	padding: 0;
 }
