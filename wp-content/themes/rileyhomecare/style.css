@@ -44,6 +44,10 @@ html .hamburger {
 	padding: 0;
 }
 
+.mobile-nav {
+	background: #000e50;
+}
+
 .hero {
 	position: relative;
 	height: 500px;
@@ -270,6 +274,10 @@ h1.entry-title {
 
 .hero {
 	height: 350px;
+}
+
+.et_pb_section {
+    padding: 25px 0;
 }
 
 .hero-overlay .header-content {
