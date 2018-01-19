@@ -32,6 +32,10 @@ a, .hamburger {
   -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
 
+.hamburger span {
+	background: #999;
+}
+
 .hamburger {
 	background: transparent;
 }
