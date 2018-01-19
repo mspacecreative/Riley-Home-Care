@@ -1,0 +1,278 @@
+/*
+ Theme Name:   Riley Home Care
+ Theme URI:    http://rileyhomecare.com/
+ Description:  Riley Home Care Child Theme
+ Author:       Matt Cyr
+ Author URI:   http://mspacecreative.com
+ Template:     Divi
+ Version:      1.0
+*/
+
+@import url("https://use.typekit.net/ohy2wuu.css");
+
+body {
+	background-image: radial-gradient(circle at center,#fff 45%,#c9c9c9);
+	font-family: "myriad-pro",sans-serif;
+}
+
+#main-content {
+	max-width: 1600px;
+	margin: auto;
+}
+
+.hero {
+	position: relative;
+	height: 500px;
+	overflow: hidden;
+}
+
+h3, h4 {
+	line-height: 1.35em;
+	padding: 0;
+	margin-bottom: 15px;
+	color: #333;
+}
+
+h2 {
+	line-height: 1.5em;
+}
+
+.entry-content ul {
+	padding-left: 18px;
+	color: #333;
+	font-size: 15px;
+}
+
+.entry-content p {
+	color: #333;
+	font-size: 15px;
+	padding: 0;
+	margin-bottom: 15px;
+}
+
+.hero img {
+	position: absolute;
+	width: 100%;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+.et_pb_fullwidth_code.et_pb_module.hero-overlay {
+	position: absolute;
+	top: 50%;
+	/* Flush Right
+	transform: translateY(-50%);
+	right: 0;
+	border-radius: 20px 0 0 20px;
+	text-align: right;*/
+	padding: 35px;
+	transform: translate(-50%, -50%);
+	left: 50%;
+	background: rgba(100,150,50,.5);
+	color: #fff;
+	max-width: 750px;
+	text-align: center;
+	border-radius: 20px;
+	width: 90%;
+}
+
+.hero-overlay h1 {
+	color: #fff;
+	line-height: 1.25em;
+	font-weight: bold;
+	font-size: 40px;
+}
+
+#logo {
+	max-height: 74%;
+}
+
+#services-section {
+	position: relative;
+}
+
+.contact-cta {
+	position: relative;
+	z-index: 3;
+}
+
+#services-section:before {
+	position: absolute;
+	bottom: -50px;
+	right: 0;
+	z-index: 1;
+	width: 530px;
+	height: 150%;
+	background-image: url(img/riley-home-care-cup-of-tea.png);
+	background-repeat: no-repeat;
+	content: '';
+	background-position: bottom right;
+	background-size: 100%;
+}
+
+#et_top_search {
+	display: none;
+}
+
+h1 {
+	line-height: 1.25em;
+}
+
+h1.entry-title {
+	padding-bottom: 0;
+}
+
+#main-content .et_pb_title_container {
+	padding: 0;
+}
+
+.home-cta-1:before {
+	position: absolute;
+	content:'';
+	background: rgba(255,255,255,.85);
+	height: 100%;
+	width: 100%;
+	top: 0;
+	left: 0;
+	z-index: 1;
+}
+
+.home-services-section:before {
+	position: absolute;
+	content: '';
+	top: 0;
+	left: 0;
+	background: url(http://localhost/rileyhomecare/wp-content/themes/rileyhomecare/img/dust_scratches.png);
+	background-repeat: repeat;
+	z-index: 1;
+	width: 100%;
+	height: 400px;
+	opacity: .5;
+}
+
+.home-services-section {
+	overflow: hidden;
+}
+
+.white-transparent-overlay:before {
+	position: absolute;
+	content:'';
+	background: rgba(255,255,255,.85);
+	height: 100%;
+	width: 100%;
+	top: 0;
+	left: 0;
+	z-index: 1;
+}
+
+.bottom-shadow:after {
+	position: absolute;
+	content:'';
+	background: url(img/bottom-shadow.png) no-repeat;
+	height: 27px;
+	width: 100%;
+	bottom: -27px;
+	left: 0;
+	z-index: 10;
+	background-position: center;
+}
+
+.bottom-shadow-top:after {
+	position: absolute;
+	content:'';
+	background: url(img/bottom-shadow.png) no-repeat;
+	height: 27px;
+	width: 100%;
+	top: 0;
+	left: 0;
+	z-index: 10;
+	background-position: center;
+}
+
+#main-header .container, #main-footer .container {
+	max-width: 1280px;
+}
+
+#main-footer {
+	background: #000e50;
+	z-index: 3;
+	position: relative;
+}
+
+#main-footer p, #main-footer a {
+	color: #fff;
+}
+
+.email-form p {
+	float: left;
+	width: 70%;
+	margin-top: 15px;
+}
+
+.email-form input, .email-form p .wpcf7-submit {
+	width: 100%;
+	padding: 10px;
+	border: none;
+}
+
+.wpcf7-submit {
+	background: #669966;
+	font-family: "myriad-pro-condensed", sans-serif;
+	text-transform: uppercase;
+}
+
+.email-form p:last-of-type {
+	width: 30%;
+}
+
+#main-footer h4 {
+	color: #fff;
+	font-weight: bold;
+}
+
+#main-footer .footer-widget:nth-child(1) {
+	width: 29.66%;
+}
+
+#main-footer .footer-widget:nth-child(2) {
+	width: 20%;
+}
+
+#main-footer .footer-widget:nth-child(3) {
+	width: 39%;
+	margin-right: 0;
+}
+
+@media (min-width: 768px) and (max-width: 980px) {
+
+#main-footer .footer-widget:nth-child(3) {
+	width: 100%!important;
+}
+}
+
+@media (max-width: 980px) {
+
+.hero {
+	height: 350px;
+}
+
+.white-bg-block {
+	background: rgba(255, 255, 255, .85);
+	padding: 25px;
+}
+
+.hero-overlay h1 {
+	font-size: 23px;
+}
+
+.et_pb_fullwidth_code.et_pb_module.hero-overlay {
+	padding: 20px;
+}
+}
+
+@media (max-width: 700px) {
+
+.hero {
+	height: 250px;
+}
+}
