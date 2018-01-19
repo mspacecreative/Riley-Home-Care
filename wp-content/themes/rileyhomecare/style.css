@@ -250,6 +250,10 @@ h1.entry-title {
 	font-weight: bold;
 }
 
+#footer-bottom {
+	padding: 10px 0;
+}
+
 #main-footer .footer-widget:nth-child(1) {
 	width: 29.66%;
 }
