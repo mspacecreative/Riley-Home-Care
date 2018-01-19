@@ -20,7 +20,7 @@ body {
 	margin: auto;
 }
 
-.container, .et_pb_fullwidth_header .et_pb_fullwidth_header_container, .et_pb_fullwidth_header .et_pb_fullwidth_header_container.center .header-content {
+.container, .et_pb_fullwidth_header .et_pb_fullwidth_header_container, .et_pb_fullwidth_header .et_pb_fullwidth_header_container.center .header-content, .et_pb_row {
 	width: 90%;
 }
 
