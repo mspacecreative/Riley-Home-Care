@@ -81,23 +81,15 @@ h2 {
 	transform: translateY(-50%);
 }
 
-.et_pb_fullwidth_code.et_pb_module.hero-overlay {
-	position: absolute;
-	top: 50%;
-	/* Flush Right
-	transform: translateY(-50%);
-	right: 0;
-	border-radius: 20px 0 0 20px;
-	text-align: right;*/
+.hero-overlay .header-content {
 	padding: 35px;
-	transform: translate(-50%, -50%);
-	left: 50%;
 	background: rgba(100,150,50,.5);
 	color: #fff;
 	max-width: 750px;
 	text-align: center;
 	border-radius: 20px;
 	width: 90%;
+	margin: auto;
 }
 
 .hero-overlay h1 {
