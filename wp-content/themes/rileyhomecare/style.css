@@ -24,7 +24,13 @@ body {
 	width: 90%;
 }
 
--webkit-tap-highlight-color: rgba(0,0,0,0);
+input,
+textarea,
+button,
+select,
+a, .hamburger {
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
 
 .hamburger {
 	background: transparent;
