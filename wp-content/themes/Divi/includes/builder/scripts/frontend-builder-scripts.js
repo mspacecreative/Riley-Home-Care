@@ -152,9 +152,7 @@
 					else
 						$et_slider_controls	= $et_slider.find( settings.controls );
 
-					et_maybe_set_controls_color( $et_slide.eq(0) );
-
-					$et_slider.on( 'click.et_pb_simple_slider', settings.controls, function () {
+					$et_slider_controls.on( 'click.et_pb_simple_slider', function () {
 						if ( $et_slider.et_animation_running )	return false;
 
 						$et_slider.et_slider_move_to( $(this).index() );
@@ -162,6 +160,8 @@
 						return false;
 					} );
 				}
+
+				et_maybe_set_controls_color( $et_slide.eq(0) );
 
 				if ( settings.use_carousel && et_slides_number > 1 ) {
 					for ( var i = 1; i <= et_slides_number; i++ ) {
@@ -742,6 +742,13 @@
 					left = left + $(this).outerWidth(true);
 				});
 
+				// Avoid unwanted horizontal scroll on body when carousel is slided
+				$('body').addClass('et-pb-is-sliding-carousel');
+
+				// Deterimine number of carousel group item
+				var carousel_group_item_size = $active_carousel_group.find('.et_pb_carousel_item').size();
+				var carousel_group_item_progress = 0;
+
 				if ( direction == 'next' ) {
 					var $next_carousel_group,
 						current_position = 1,
@@ -804,6 +811,15 @@
 						left: '-100%'
 					}, {
 						duration: settings.slide_duration,
+						progress: function(animation, progress) {
+							if (progress > (carousel_group_item_progress/carousel_group_item_size)) {
+								carousel_group_item_progress++;
+
+								// Adding classnames on incoming/outcoming carousel item
+								$active_carousel_group.find('.et_pb_carousel_item:nth-child(' + carousel_group_item_progress + ')').addClass('item-fade-out');
+								$next_carousel_group.find('.et_pb_carousel_item:nth-child(' + carousel_group_item_progress + ')').addClass('item-fade-in');
+							}
+						},
 						complete: function() {
 							$carousel_items.find('.delayed_container_append').each(function(){
 								left = $( '#' + $(this).attr('id') + '-dup' ).css('left');
@@ -822,6 +838,13 @@
 								$(this).css({'position': '', 'left': ''});
 								$(this).appendTo( $carousel_items );
 							});
+
+							// Removing classnames on incoming/outcoming carousel item
+							$carousel_items.find('.item-fade-out').removeClass('item-fade-out');
+							$next_carousel_group.find('.item-fade-in').removeClass('item-fade-in');
+
+							// Remove horizontal scroll prevention class name on body
+							$('body').removeClass('et-pb-is-sliding-carousel');
 
 							$active_carousel_group.remove();
 
@@ -918,6 +941,18 @@
 						left: '100%'
 					}, {
 						duration: settings.slide_duration,
+						progress: function(animation, progress) {
+							if (progress > (carousel_group_item_progress/carousel_group_item_size)) {
+
+								var group_item_nth = carousel_group_item_size - carousel_group_item_progress;
+
+								// Add fadeIn / fadeOut className to incoming/outcoming carousel item
+								$active_carousel_group.find('.et_pb_carousel_item:nth-child(' + group_item_nth + ')').addClass('item-fade-out');
+								$prev_carousel_group.find('.et_pb_carousel_item:nth-child(' + group_item_nth + ')').addClass('item-fade-in');
+
+								carousel_group_item_progress++;
+							}
+						},
 						complete: function() {
 							$carousel_items.find('.delayed_container_append').reverse().each(function(){
 								left = $( '#' + $(this).attr('id') + '-dup' ).css('left');
@@ -936,6 +971,13 @@
 								$(this).css({'position': '', 'left': ''});
 								$(this).appendTo( $carousel_items );
 							});
+
+							// Removing classnames on incoming/outcoming carousel item
+							$carousel_items.find('.item-fade-out').removeClass('item-fade-out');
+							$prev_carousel_group.find('.item-fade-in').removeClass('item-fade-in');
+
+							// Remove horizontal scroll prevention class name on body
+							$('body').removeClass('et-pb-is-sliding-carousel');
 
 							$active_carousel_group.remove();
 						}
@@ -1119,7 +1161,7 @@
 				});
 			}
 
-			// init split testing if enabled
+			// init AB Testing if enabled
 			if ( et_pb_custom.is_ab_testing_active ) {
 				et_pb_init_ab_test();
 			}
@@ -1265,7 +1307,8 @@
 							opener: function(element) {
 								return element.find('img');
 							}
-						}
+						},
+						autoFocusLast: false
 					} );
 				} );
 				// prevent attaching of any further actions on click
@@ -1288,7 +1331,8 @@
 							opener: function(element) {
 								return element.find('img');
 							}
-						}
+						},
+						autoFocusLast: false
 					} );
 				}
 
@@ -2391,7 +2435,7 @@
 				}
 
 				window.et_pb_map_init = function( $this_map_container ) {
-					if (typeof google === 'undefined') {
+					if ( typeof google === 'undefined' || typeof google.maps === 'undefined' ) {
 						return;
 					}
 
@@ -2459,7 +2503,7 @@
 				if ( window.et_load_event_fired ) {
 					et_pb_init_maps();
 				} else {
-					if ( typeof google !== 'undefined' ) {
+					if ( typeof google !== 'undefined' && typeof google.maps !== 'undefined' ) {
 						google.maps.event.addDomListener(window, 'load', function() {
 							et_pb_init_maps();
 						} );
@@ -2484,7 +2528,7 @@
 
 			if ( $et_pb_circle_counter.length || is_frontend_builder || $( '.et_pb_ajax_pagination_container' ).length > 0 ) {
 				window.et_pb_circle_counter_init = function($the_counter, animate) {
-					if ( 0 === $the_counter.width() ) {
+					if ( $the_counter.width() <= 0 ) {
 						return;
 					}
 
@@ -2531,6 +2575,8 @@
 			if ( $et_pb_number_counter.length || is_frontend_builder || $( '.et_pb_ajax_pagination_container' ).length > 0 ) {
 				window.et_pb_reinit_number_counters = function( $et_pb_number_counter ) {
 
+					var is_firefox = $('body').hasClass('gecko');
+
 					function et_format_number( number_value, separator ) {
 						return number_value.toString().replace( /\B(?=(\d{3})+(?!\d))/g, separator );
 					}
@@ -2548,7 +2594,7 @@
 								duration: 1800,
 								enabled: true
 							},
-							size: 0,
+							size: is_firefox ? 1 : 0, // firefox can't print page when it contains 0 sized canvas elements.
 							trackColor: false,
 							scaleColor: false,
 							lineWidth: 0,
@@ -2675,6 +2721,11 @@
 				}
 			} );
 
+			// Email Validation
+			// Use the regex defined in the HTML5 spec for input[type=email] validation
+			// (see https://www.w3.org/TR/2016/REC-html51-20161101/sec-forms.html#email-state-typeemail)
+			var et_email_reg_html5 = /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
+
 			var $et_contact_container = $( '.et_pb_contact_form_container' );
 
 			if ( $et_contact_container.length ) {
@@ -2683,7 +2734,6 @@
 						$et_contact_form = $this_contact_container.find( 'form' ),
 						$et_contact_submit = $this_contact_container.find( 'input.et_pb_contact_submit' ),
 						$et_inputs = $et_contact_form.find( 'input[type=text], .et_pb_checkbox_handle, input[type=radio]:checked, textarea, .et_pb_contact_select' ),
-						et_email_reg = /^[\w-]+(\.[\w-]+)*@([a-z0-9-]+(\.[a-z0-9-]+)*?\.[a-z]{2,6}|(\d{1,3}\.){3}\d{1,3})(:\d{4})?$/,
 						redirect_url = typeof $this_contact_container.data( 'redirect_url' ) !== 'undefined' ? $this_contact_container.data( 'redirect_url' ) : '';
 
 					$et_contact_form.find( 'input[type=checkbox]' ).on( 'change', function() {
@@ -2733,9 +2783,6 @@
 							var original_id   = typeof $this_el.data( 'original_id' ) !== 'undefined' ? $this_el.data( 'original_id' ) : '';
 							var unchecked     = false;
 							var default_value;
-
-							// Escape double quotes in label
-							this_label = this_label.replace(/"/g, "&quot;");
 
 							// radio field properties adjustment
 							if ( 'radio' === field_type ) {
@@ -2793,6 +2840,9 @@
 								}
 							}
 
+							// Escape double quotes in label
+							this_label = this_label.replace(/"/g, "&quot;");
+
 							// Store the labels of the conditionally hidden fields so that they can be
 							// removed later if a custom message pattern is enabled
 							if ( ! $this_el.is(':visible') && 'hidden' !== $this_el.attr('type') && 'radio' !== $this_el.attr('type') ) {
@@ -2834,7 +2884,7 @@
 							if ( 'email' === field_type ) {
 								// remove trailing/leading spaces and convert email to lowercase
 								var processed_email = this_val.trim().toLowerCase();
-								var is_valid_email = et_email_reg.test( processed_email );
+								var is_valid_email = et_email_reg_html5.test( processed_email );
 
 								if ( '' !== processed_email && this_label !== processed_email && ! is_valid_email ) {
 									$this_el.addClass( 'et_contact_error' );
@@ -3210,8 +3260,7 @@
 					list_id = $newsletter_container.find( 'input[name="et_pb_signup_list_id"]' ).val(),
 					$error_message = $newsletter_container.find( '.et_pb_newsletter_error' ).hide(),
 					provider = $newsletter_container.find( 'input[name="et_pb_signup_provider"]' ).val(),
-					account = $newsletter_container.find( 'input[name="et_pb_signup_account_name"]' ).val(),
-					et_email_reg = /^[\w-]+(\.[\w-]+)*@([a-z0-9-]+(\.[a-z0-9-]+)*?\.[a-z]{2,6}|(\d{1,3}\.){3}\d{1,3})(:\d{4})?$/;
+					account = $newsletter_container.find( 'input[name="et_pb_signup_account_name"]' ).val();
 
 				var $success_message = $newsletter_container.find( '.et_pb_newsletter_success' );
 				var redirect_url     = $newsletter_container.data( 'redirect_url' );
@@ -3236,7 +3285,7 @@
 					is_valid = false;
 				}
 
-				if ( ! et_email_reg.test( $email.val() ) ) {
+				if ( ! et_email_reg_html5.test( $email.val() ) ) {
 					$email.addClass( 'et_pb_signup_error' );
 					is_valid = false;
 				}
@@ -4075,6 +4124,12 @@
 				var $et_pb_ab_goal = $( '.et_pb_ab_goal' ),
 					et_ab_subject_id = et_pb_get_subject_id();
 
+				// Disable AB Testing tracking on VB
+				// AB Testing should not record anything on AB Testing
+				if ( is_frontend_builder ) {
+					return;
+				}
+
 				$.each( et_pb_ab_logged_status, function( key, value ) {
 					var cookie_subject = 'click_goal' === key || 'con_short' === key ? '' : et_ab_subject_id;
 
@@ -4178,7 +4233,7 @@
 				var $subject = $( '.et_pb_ab_subject' );
 
 				// In case no subject found
-				if ( $subject.length <= 0 ) {
+				if ( $subject.length <= 0 || $('html').is('.et_fb_preview_active--wireframe_preview') ) {
 					return false;
 				}
 
@@ -4510,8 +4565,6 @@
 					$( '.et_pb_module' ).fitVids( { customSelector: "iframe[src^='http://www.hulu.com'], iframe[src^='http://www.dailymotion.com'], iframe[src^='http://www.funnyordie.com'], iframe[src^='https://embed-ssl.ted.com'], iframe[src^='http://embed.revision3.com'], iframe[src^='https://flickr.com'], iframe[src^='http://blip.tv'], iframe[src^='http://www.collegehumor.com']"} );
 				}
 
-				et_fix_video_wmode('.fluid-width-video-wrapper');
-
 				et_fix_slider_height();
 
 				// calculate fullscreen section sizes on $( window ).ready to avoid jumping in some cases
@@ -4793,20 +4846,23 @@
 			}
 
 			window.et_pb_search_init = function( $search ) {
-				var $input_field = $search.find( '.et_pb_s' ),
-					$button = $search.find( '.et_pb_searchsubmit' ),
-					input_padding = $search.hasClass( 'et_pb_text_align_right' ) ? 'paddingLeft' : 'paddingRight',
-					disabled_button = $search.hasClass( 'et_pb_hide_search_button' );
+				var $input_field = $search.find( '.et_pb_s' );
+				var $button = $search.find( '.et_pb_searchsubmit' );
+				var input_padding = $search.hasClass( 'et_pb_text_align_right' ) ? 'paddingLeft' : 'paddingRight';
+				var disabled_button = $search.hasClass( 'et_pb_hide_search_button' );
+				var buttonHeight = $button.outerHeight();
+				var buttonWidth = $button.outerWidth();
+				var inputHeight = $input_field.innerHeight();
 
 				// set the relative button position to get its height correctly
 				$button.css( { 'position' : 'relative' } );
-
-				if ( $button.innerHeight() > $input_field.innerHeight() ) {
-					$input_field.height( $button.innerHeight() );
+				
+				if ( buttonHeight > inputHeight ) {
+					$input_field.innerHeight( buttonHeight );
 				}
 
 				if ( ! disabled_button ) {
-					$input_field.css( input_padding, $button.innerWidth() + 10 );
+					$input_field.css( input_padding, buttonWidth + 10 );
 				}
 
 				// reset the button position back to default
@@ -5166,7 +5222,7 @@
 		});
 
 		// get the subject id for current visitor and display it
-		// this ajax request performed only if split testing is enabled and cache plugin active
+		// this ajax request performed only if AB Testing is enabled and cache plugin active
 		$.ajax( {
 			type: "POST",
 			url: et_pb_custom.ajaxurl,
@@ -5196,5 +5252,21 @@
 
 	$(document).ready(function(){
 		( et_pb_box_shadow_elements||[] ).map(et_pb_box_shadow_apply_overlay);
-	})
+	});
+
+	$(window).load(function() {
+		var $body = $('body');
+		// fix Safari letter-spacing bug when styles applied in `head`
+		// Trigger styles redraw by changing body display property to differentvalue and reverting it back to original.
+		if ($body.hasClass('safari')){
+			var original_display_value = $body.css('display');
+			var different_display_value = 'initial' === original_display_value ? 'block' : 'initial';
+
+			$body.css({ 'display': different_display_value });
+
+			setTimeout(function() {
+				$body.css({ 'display': original_display_value });
+			}, 0);
+		}
+	});
 })(jQuery);

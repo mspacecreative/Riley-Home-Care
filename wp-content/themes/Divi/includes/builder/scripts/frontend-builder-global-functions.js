@@ -28,19 +28,6 @@
 		$( 'html, body' ).animate( { scrollTop :  $scroll_position }, speed, easing );
 	}
 
-	window.et_fix_video_wmode = function( video_wrapper ) {
-		$( video_wrapper ).each( function() {
-			if ( $(this).find( 'iframe' ).length ) {
-				var $this_el = $(this).find( 'iframe' ),
-					src_attr = $this_el.attr('src'),
-					wmode_character = src_attr.indexOf( '?' ) == -1 ? '?' : '&amp;',
-					this_src = src_attr + wmode_character + 'wmode=opaque';
-
-				$this_el.attr('src', this_src);
-			}
-		} );
-	}
-
 	window.et_pb_form_placeholders_init = function( $form ) {
 		$form.find('input:text, input[type="email"], input[type="url"], textarea').each(function(index,domEle){
 			var $et_current_input = jQuery(domEle),
@@ -283,7 +270,7 @@
 			});
 
 			// Dropdown menu adjustment for touch screen
-			$et_menu.find( 'li.menu-item-has-children' ).on( 'touchend', function(event){
+			$et_menu.find( 'li.menu-item-has-children' ).on( 'touchend', function(event) {
 				var $closest_li = $( event.target ).closest( '.menu-item' );
 
 				// no need special processing if parent li doesn't have hidden child elements
@@ -297,7 +284,11 @@
 				// open submenu on 1st tap
 				// open link on second tap
 				if ( $this_el.hasClass( 'et-touch-hover' ) || is_mega_menu_opened ) {
-					window.location = $this_el.find( '>a' ).attr( 'href' );
+					var href = $this_el.find( '>a' ).attr( 'href' );
+
+					if ( typeof href !== 'undefined' ) {//if parent link is not empty then open the link
+						window.location = $this_el.find( '>a' ).attr( 'href' );
+					}
 				} else {
 					// close the menu before opening new one
 					if ( $( event.target ).closest( '.et-touch-hover' ).length < 1 ) {

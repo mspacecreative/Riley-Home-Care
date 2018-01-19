@@ -127,6 +127,7 @@
 			$this.ajaxAction( {
 				action: 'et_core_portability_import',
 				file: file,
+				nonce: $this.nonces.import
 			}, function( response ) {
 				etCore.modalContent( '<div class="et-core-loader et-core-loader-success"></div>', false, 3000, '#et-core-portability-import' );
 				$this.toggleCancel();
@@ -211,6 +212,7 @@
 					action: 'et_core_portability_export',
 					content: content,
 					selection: $.isEmptyObject( posts ) ? false : JSON.stringify( posts ),
+					nonce: $this.nonces.export
 				}, function( response ) {
 					var time = ' ' + new Date().toJSON().replace( 'T', ' ' ).replace( ':', 'h' ).substring( 0, 16 ),
 						downloadURL = $this.instance( '[data-et-core-portability-export]' ).data( 'et-core-portability-export' ),
@@ -253,7 +255,7 @@
 					action: 'et_core_portability_export',
 					content: content,
 					timestamp: 0,
-					nonce: $this.nonce,
+					nonce: $this.nonces.export,
 					post: postId,
 					context: 'et_builder',
 					page: page,
@@ -350,7 +352,7 @@
 					file: file,
 					content: false,
 					timestamp: 0,
-					nonce: $this.nonce,
+					nonce: $this.nonces.import,
 					post: postId,
 					context: 'et_builder'
 				};
@@ -435,7 +437,7 @@
 						}
 					}
 				} );
-			}
+			};
 
 			importFBAjax(formData)
 		},
@@ -508,23 +510,45 @@
 						return;
 					}
 
-					$this.instance( '.et-core-progress' )
-						.removeClass( 'et-core-progress-striped' )
-						.find( '.et-core-progress-bar' ).width( '100%' )
-						.text( '100%' )
-						.delay( 1000 ).queue( function() {
+					// Timestamp when AJAX response is received
+					var ajax_returned_timestamp = new Date().getTime();
 
+					// Animate Progresss Bar
+					var animateCoreProgressBar = function( DOMHighResTimeStamp ) {
+						// Check has been performed for 3s and progress bar DOM still can't be found, consider it fail to avoid infinite loop
+						var current_timestamp = new Date().getTime();
+						if ((current_timestamp - ajax_returned_timestamp) > 3000) {
 							$this.enableActions();
+							etCore.modalContent( '<div class="et-core-loader et-core-loader-fail"></div>', false, 3000, '#' + $this.instance( '.ui-tabs-panel:visible' ).attr( 'id' ) );
+							return;
+						}
 
-							if ( 'undefined' === typeof response.data || ( 'undefined' !== typeof response.data && ! response.data.timestamp ) ) {
-								etCore.modalContent( '<div class="et-core-loader et-core-loader-fail"></div>', false, 3000, '#' + $this.instance( '.ui-tabs-panel:visible' ).attr( 'id' ) );
-								return;
-							}
+						// Check if core progress DOM exists
+						if ($this.instance( '.et-core-progress' ).length ) {
+							$this.instance( '.et-core-progress' )
+								.removeClass( 'et-core-progress-striped' )
+								.find( '.et-core-progress-bar' ).width( '100%' )
+								.text( '100%' )
+								.delay( 1000 )
+								.queue( function() {
 
-							$( this ).dequeue();
+									$this.enableActions();
 
-							callback( response );
-						} );
+									if ( 'undefined' === typeof response.data || ( 'undefined' !== typeof response.data && ! response.data.timestamp ) ) {
+										etCore.modalContent( '<div class="et-core-loader et-core-loader-fail"></div>', false, 3000, '#' + $this.instance( '.ui-tabs-panel:visible' ).attr( 'id' ) );
+										return;
+									}
+
+									$( this ).dequeue();
+
+									callback( response );
+								} );
+						} else {
+							// Recheck on the next animation frame
+							window.requestAnimationFrame(animateCoreProgressBar);
+						}
+					}
+					animateCoreProgressBar();
 				}
 			};
 
@@ -615,7 +639,7 @@
 					type: 'POST',
 					url: etCore.ajaxurl,
 					data: {
-						nonce: this.nonce,
+						nonce: this.nonces.cancel,
 						context: this.instance().data( 'et-core-portability' ),
 						action: 'et_core_portability_cancel',
 					}
