@@ -276,6 +276,14 @@ h1.entry-title {
 	height: 350px;
 }
 
+.et_header_style_left #logo {
+	max-width: none;
+}
+
+#logo {
+	max-height: 55%;
+}
+
 .et_pb_section {
     padding: 25px 0;
 }
