@@ -89,8 +89,8 @@ button.hamburger {
 
 @media (max-width: 1080px) {
 
-#et-top-navigation {
-	visibility: hidden;
+.et_header_style_left #et-top-navigation {
+	display: none!important;
 }
 }
 

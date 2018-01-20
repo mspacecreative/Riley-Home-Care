@@ -170,7 +170,7 @@ h1.entry-title {
 	content: '';
 	top: 0;
 	left: 0;
-	background: url(http://localhost/rileyhomecare/wp-content/themes/rileyhomecare/img/dust_scratches.png);
+	background: url(img/dust_scratches.png);
 	background-repeat: repeat;
 	z-index: 1;
 	width: 100%;
@@ -299,9 +299,9 @@ nav li a {
 	height: 350px;
 }
 
-.et_header_style_left #logo {
+/*.et_header_style_left #logo {
 	max-width: none;
-}
+}*/
 
 #logo {
 	max-height: 50%;
@@ -336,9 +336,20 @@ nav li a {
 }
 }
 
+@media (min-width: 701px) and (max-width: 1080px) {
+
+.et_header_style_left #logo{
+	max-width: 35%;
+}
+}
+
 @media (max-width: 1080px) {
 
-#et-top-navigation {
-	opacity: 0;
+.et_header_style_left .logo_container {
+	position: relative;
+}
+
+#logo {
+	padding: 10px 0;
 }
 }
