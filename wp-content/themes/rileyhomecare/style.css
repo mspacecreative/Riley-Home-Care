@@ -137,12 +137,20 @@ h2 {
 	background-size: 100%;
 }
 
+#footer-bottom, html {
+	background: #010b39;
+}
+
 #et_top_search {
 	display: none;
 }
 
 h1 {
 	line-height: 1.25em;
+}
+
+.et_pb_module_header{
+	padding-bottom: 0;
 }
 
 h1.entry-title {
