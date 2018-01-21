@@ -137,6 +137,20 @@ h2 {
 	background-size: 100%;
 }
 
+#foot-care-section:before {
+	position: absolute;
+	bottom: -50px;
+	right: 0;
+	z-index: 1;
+	width: 530px;
+	height: 150%;
+	background-image: url(img/riley-home-care-foot.png);
+	background-repeat: no-repeat;
+	content: '';
+	background-position: bottom right;
+	background-size: 100%;
+}
+
 #footer-bottom, html {
 	background: #010b39;
 }
