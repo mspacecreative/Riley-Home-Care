@@ -332,9 +332,13 @@ nav li a {
 	height: 350px;
 }
 
-/*.et_header_style_left #logo {
-	max-width: none;
-}*/
+.et_pb_divider_hidden {
+	height: 0;
+}
+
+.et_right_sidebar .et_pb_row .et_pb_column {
+	margin-bottom: 0!important;
+}
 
 #logo {
 	max-height: 50%;
@@ -401,5 +405,12 @@ nav li a {
 
 .et_pb_text_0.white-bg-block {
 	max-width: 85%;
+}
+}
+
+@media (max-width: 959px) {
+
+body.et_right_sidebar .content-column.one_half {
+	margin-bottom: 0;
 }
 }
