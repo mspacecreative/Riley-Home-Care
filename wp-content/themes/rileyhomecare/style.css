@@ -203,6 +203,14 @@ h1.entry-title {
 	opacity: .5;
 }
 
+.entry-content ul:last-child {
+	padding-bottom: 0;
+}
+
+body.et_right_sidebar .one_half.last_column {
+	margin-bottom: 0;
+}
+
 .home-services-section {
 	overflow: hidden;
 }
@@ -340,11 +348,6 @@ nav li a {
 	padding: 25px;
 }
 
-.white-bg-block {
-	background: rgba(255, 255, 255, .85);
-	padding: 25px;
-}
-
 .hero-overlay h1 {
 	font-size: 23px;
 }
@@ -383,5 +386,20 @@ nav li a {
 
 .et_header_style_left #logo {
 	max-width: 225px;
+}
+}
+
+@media (max-width: 1024px) {
+
+.white-bg-block {
+	background: rgba(255, 255, 255, .85);
+	padding: 25px;
+}
+}
+
+@media (min-width: 1025px) {
+
+.et_pb_text_0.white-bg-block {
+	max-width: 85%;
 }
 }
