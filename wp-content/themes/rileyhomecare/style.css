@@ -378,3 +378,10 @@ nav li a {
 	padding: 10px 0;
 }
 }
+
+@media (max-width: 812px) {
+
+.et_header_style_left #logo {
+	max-width: 225px;
+}
+}
