@@ -151,6 +151,10 @@ h2 {
 	background-size: 100%;
 }
 
+.one_half.last_column {
+	margin-right: 0;
+}
+
 #footer-bottom, html {
 	background: #010b39;
 }
