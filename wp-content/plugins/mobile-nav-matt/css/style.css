@@ -42,14 +42,14 @@
 	display: block;
 }
 
-.is-active .mobile-nav, #page-container.is-active {
+.is-active .mobile-nav, #page-container.is-active, .is-active #main-header {
 	transform: translateX(-250px);
 	transition: 0.5s ease-in-out;
 }
 
-#page-container {
+#page-container, #main-header {
 	transform: translateX(0);
-	transition: 0.5s ease-in-out;
+	transition: 0.5s ease-in-out!important;
 }
 
 .mobile-nav .sub-menu {
@@ -57,12 +57,12 @@
 }
 
 .hamburger {
-	position: absolute;
+	position: fixed;
 	top: 0;
 	right: 5%;
 	padding: 0;
 	display: table;
-	z-index: 9999;
+	z-index: 99999;
 	transition: 0.5s ease-in-out;
 }
 
