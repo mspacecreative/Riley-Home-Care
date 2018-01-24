@@ -91,6 +91,14 @@ h2 {
 	margin-bottom: 15px;
 }
 
+#personal-support .et_pb_text_inner .one_half {
+	width: 38%;
+}
+
+#personal-support .et_pb_text_inner .one_half.last_column {
+	width: 58%;
+}
+
 .entry-content ol {
  	font-size: 17px;
  	margin: 15px 0 0;
