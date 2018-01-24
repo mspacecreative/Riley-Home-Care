@@ -79,6 +79,37 @@ h2 {
 	font-size: 17px;
 }
 
+.green-bg-block h3 {
+	border-bottom: 1px solid #fff;
+}
+
+.entry-content h2 {
+	font-weight: 900;
+	font-size: 26px;
+	line-height: 1.15em;
+	padding-bottom: 0;
+	margin-bottom: 15px;
+}
+
+.entry-content ol {
+ 	font-size: 17px;
+ 	margin: 15px 0 0;
+}
+
+.entry-content ol li {
+	text-indent: -15px;
+	padding-left: 13px;
+}
+
+.entry-content ol:last-of-type, .entry-content h4:last-of-type {
+	padding-bottom: 0;
+	margin-bottom: 0;
+}
+
+.entry-content h3 {
+	color: #2ea3f2;
+}
+
 .entry-content p {
 	color: #333;
 	font-size: 17px;
@@ -98,7 +129,7 @@ h2 {
 	background: rgba(100,150,50,.5);
 	color: #fff;
 	text-align: center;
-	border-radius: 20px;
+	border-radius: 10px;
 	width: 90%;
 	margin: auto;
 }
@@ -149,6 +180,33 @@ h2 {
 	content: '';
 	background-position: bottom right;
 	background-size: 100%;
+}
+
+#education-section:before {
+	position: absolute;
+	bottom: 0;
+	z-index: 1;
+	width: 35%;
+	height: 120%;
+	background-image: url(img/riley-home-care-education.png);
+	background-repeat: no-repeat;
+	content: '';
+	background-position: bottom right;
+	background-size: 100%;
+	right: 0;
+}
+
+#personal-support:before {
+	position: absolute;
+	z-index: 1;
+	background-image: url(img/riley-home-care-support.png);
+	background-repeat: no-repeat;
+	content: '';
+	background-size: contain;
+	left: -12.5%;
+	top: 0;
+	height: 100%;
+	width: 100%;
 }
 
 .one_half.last_column {
@@ -246,6 +304,16 @@ nav li a {
 	background-position: center;
 }
 
+.green-bg-block {
+	background: rgba(130, 180, 85, .85);
+	padding: 25px;
+	border-radius: 10px;
+}
+
+.entry-content .green-bg-block p {
+	color: #fff;
+}
+
 .bottom-shadow-top:after {
 	position: absolute;
 	content:'';
@@ -291,6 +359,10 @@ nav li a {
 	font-family: "myriad-pro-condensed", 'Myriad Pro', sans-serif;
 	text-transform: uppercase;
 	color: #fff;
+}
+
+p:last-of-type {
+	margin-bottom: 0;
 }
 
 .email-form p:last-of-type {
@@ -408,9 +480,23 @@ nav li a {
 }
 }
 
+@media (min-width: 980px) {
+
+.et_pb_text_0.white-bg-block.hold-block {
+	background: none;
+}
+}
+
 @media (max-width: 959px) {
 
 body.et_right_sidebar .content-column.one_half {
 	margin-bottom: 0;
 }
 }
+
+/*@media (max-width: 1200px) {
+
+#education-section:before {
+	opacity: .35;
+}
+}*/
