@@ -81,6 +81,7 @@ h2 {
 	padding-left: 18px;
 	color: #333;
 	font-size: 17px;
+	margin: 15px 0 0;
 }
 
 .green-bg-block h3 {
@@ -523,6 +524,10 @@ p:last-of-type {
 
 body.et_right_sidebar .content-column.one_half {
 	margin-bottom: 0;
+}
+
+.entry-content .one_half.last_column ul {
+	margin-top: 0;
 }
 
 #personal-support .et_pb_text_inner .content-column.one_half:first-child {
