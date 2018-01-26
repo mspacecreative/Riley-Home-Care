@@ -10,6 +10,10 @@
 
 @import url("https://use.typekit.net/ohy2wuu.css");
 
+* {
+	box-sizing: border-box;
+}
+
 html, body {
 	overflow-x: hidden;
 }
@@ -401,6 +405,39 @@ p:last-of-type {
 	margin-right: 0;
 }
 
+.wpcf7 input, .wpcf7 textarea {
+	width: 100%;
+	padding: 7px 10px;
+	font-size: 16px;
+	font-family: "proxima-nova", Proxima Nova, sans-serif;
+	
+}
+
+.wpcf7 p {
+	margin-bottom: 2%;
+	margin-top: 2%;
+}
+
+.wpcf7 input.wpcf7-submit {
+	width: auto;
+	font-size: 17px;
+	font-weight: bold;
+	border: none;
+	padding: 8px 15px;
+	line-height: inherit;
+}
+
+.wpcf7 p:nth-child(2), .wpcf7 p:nth-child(3) {
+	float: left;
+	width: 49%;
+	margin-right: 2%;
+	margin-top: 0;
+}
+
+.wpcf7 p:nth-child(3) {
+	margin-right: 0;
+}
+
 @media (min-width: 768px) and (max-width: 980px) {
 
 #main-footer .footer-widget:nth-child(3) {
@@ -545,10 +582,3 @@ body.et_right_sidebar .content-column.one_half {
 	width: 58%;
 }
 }
-
-/*@media (max-width: 1200px) {
-
-#education-section:before {
-	opacity: .35;
-}
-}*/
