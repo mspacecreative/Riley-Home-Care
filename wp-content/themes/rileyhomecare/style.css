@@ -427,10 +427,6 @@ p:last-of-type {
 	line-height: inherit;
 }
 
-.wpcf7 p:nth-child(3) {
-	margin-right: 0;
-}
-
 @media (min-width: 768px) and (max-width: 980px) {
 
 #main-footer .footer-widget:nth-child(3) {
@@ -505,6 +501,10 @@ p:last-of-type {
 	width: 49%;
 	margin-right: 2%;
 	margin-top: 0;
+}
+
+.wpcf7 p:nth-child(3) {
+	margin-right: 0;
 }
 }
 
