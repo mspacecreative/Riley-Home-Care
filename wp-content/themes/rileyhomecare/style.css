@@ -427,13 +427,6 @@ p:last-of-type {
 	line-height: inherit;
 }
 
-.wpcf7 p:nth-child(2), .wpcf7 p:nth-child(3) {
-	float: left;
-	width: 49%;
-	margin-right: 2%;
-	margin-top: 0;
-}
-
 .wpcf7 p:nth-child(3) {
 	margin-right: 0;
 }
@@ -505,6 +498,16 @@ p:last-of-type {
 }
 }
 
+@media (min-width: 812px) {
+
+.wpcf7 p:nth-child(2), .wpcf7 p:nth-child(3) {
+	float: left;
+	width: 49%;
+	margin-right: 2%;
+	margin-top: 0;
+}
+}
+
 @media (max-width: 812px) {
 
 .et_header_style_left #logo {
@@ -515,6 +518,14 @@ p:last-of-type {
 	width: 100%;
 	height: 100%;
 	right: -10%;
+}
+
+.wpcf7 p {
+	margin-bottom: 5%;
+}
+
+.wpcf7 p:nth-child(2), .wpcf7 p:nth-child(3) {
+	margin-right: 0;
 }
 
 #personal-support:before {
