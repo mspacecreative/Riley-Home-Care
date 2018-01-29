@@ -432,7 +432,6 @@ p:last-of-type {
 }
 
 .wpcf7 input.wpcf7-submit {
-	width: auto;
 	font-size: 17px;
 	font-weight: bold;
 	border: none;
@@ -627,6 +626,7 @@ body.et_right_sidebar .content-column.one_half {
 	width: 65%;
 	height: 30px;
 	margin-top: 0;
+	float: left;
 }
 
 .email-form .wpcf7 p:nth-child(3) {
