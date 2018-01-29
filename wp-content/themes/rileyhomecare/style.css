@@ -413,6 +413,16 @@ p:last-of-type {
 	
 }
 
+#subscribe-button {
+	background-image: url(img/subscribe-button.png);
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: 30px;
+	font-size: 0;
+	background-position: center center;
+	width: 100%;
+}
+
 .wpcf7 p {
 	margin-bottom: 2%;
 	margin-top: 2%;
@@ -591,5 +601,49 @@ body.et_right_sidebar .content-column.one_half {
 
 #personal-support .et_pb_text_inner .one_half.last_column {
 	width: 58%;
+}
+}
+
+.email-form .wpcf7 {
+	margin-top: 15px;
+}
+
+.email-form .wpcf7:after {
+	clear: both;
+	display: table;
+	content: '';
+}
+
+.email-form .wpcf7 p {
+	margin-right: 0;
+	margin-bottom: 0;
+	padding-bottom: 0;
+}
+
+.email-form .wpcf7 p:nth-child(2) {
+	width: 65%;
+}
+
+.email-form .wpcf7 p:nth-child(3) {
+	width: 35%;
+}
+
+@media (min-width: 800px) and (max-width: 1024px) and (orientation: landscape) {
+.email-form .wpcf7 p:nth-child(2) {
+	width: 50%;
+}
+
+.email-form .wpcf7 p:nth-child(3) {
+	width: 50%;
+}
+}
+
+@media (min-width: 415px) and (max-width: 1024px) and (orientation: portrait) {
+.email-form .wpcf7 p:nth-child(2) {
+	width: 50%;
+}
+
+.email-form .wpcf7 p:nth-child(3) {
+	width: 50%;
 }
 }
