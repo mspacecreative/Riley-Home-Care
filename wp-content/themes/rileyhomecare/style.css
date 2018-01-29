@@ -638,6 +638,7 @@ body.et_right_sidebar .content-column.one_half {
 	font-size: 12px;
 	padding: 0 10px;
 	display: block;
+	line-height: 30px;
 	font-family: "proxima-nova", Proxima Nova, sans-serif;
 }
 
