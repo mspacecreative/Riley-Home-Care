@@ -417,10 +417,11 @@ p:last-of-type {
 	background-image: url(img/subscribe-button.png);
 	background-repeat: no-repeat;
 	background-size: cover;
-	height: 30px;
 	font-size: 0;
 	background-position: center center;
 	width: 100%;
+	display: inline-block;
+	vertical-align: middle;
 }
 
 .wpcf7 p {
