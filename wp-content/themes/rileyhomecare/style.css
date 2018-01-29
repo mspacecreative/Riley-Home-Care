@@ -612,6 +612,10 @@ body.et_right_sidebar .content-column.one_half {
 	margin-top: 15px;
 }
 
+.email-form {
+	box-sizing: border-box!important;
+}
+
 .email-form .wpcf7:after {
 	clear: both;
 	display: table;
