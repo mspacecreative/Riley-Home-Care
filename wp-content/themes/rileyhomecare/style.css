@@ -651,6 +651,7 @@ body.et_right_sidebar .content-column.one_half {
 
 span.your-email {
 	display: table;
+	height: 32px;
 }
 
 @media (min-width: 800px) and (max-width: 1024px) and (orientation: landscape) {
