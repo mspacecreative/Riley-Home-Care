@@ -421,9 +421,10 @@ p:last-of-type {
 	font-size: 0;
 	background-position: center center;
 	width: 100%;
-	display: block;
+	display: inline-block;
 	height: 100%;
 	line-height: 30px;
+	vertical-align: middle;
 }
 
 .wpcf7 p {
