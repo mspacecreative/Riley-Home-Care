@@ -422,6 +422,7 @@ p:last-of-type {
 	background-position: center center;
 	width: 100%;
 	display: block;
+	height: 100%;
 }
 
 .wpcf7 p {
