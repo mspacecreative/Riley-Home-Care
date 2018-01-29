@@ -422,8 +422,9 @@ p:last-of-type {
 	font-size: 0;
 	background-position: center center;
 	width: 100%;
-	height: 100%;
-	display: block;
+	height: 32px;
+	display: table-cell;
+	vertical-align: middle;
 }
 
 .wpcf7 p {
@@ -641,15 +642,15 @@ body.et_right_sidebar .content-column.one_half {
 	font-family: "proxima-nova", Proxima Nova, sans-serif;
 }
 
-.email-form .wpcf7 p:nth-child(3) input {
-	line-height: 30px;
-}
-
 .email-form .wpcf7 p:nth-child(3) {
 	width: 35%;
 	margin-top: 0;
 	float: right;
-	line-height: 30px;
+	display: table;
+}
+
+span.your-email {
+	display: table;
 }
 
 @media (min-width: 800px) and (max-width: 1024px) and (orientation: landscape) {
