@@ -418,7 +418,7 @@ p:last-of-type {
 	background-image: url(img/subscribe-button.png);
 	background-color: #84b756;
 	background-repeat: no-repeat;
-	background-size: contain;
+	background-size: cover;
 	font-size: 0;
 	background-position: center center;
 	width: 100%;
@@ -629,6 +629,7 @@ body.et_right_sidebar .content-column.one_half {
 	margin-top: 0;
 	float: left;
 	display: block;
+	line-height: 30px;
 }
 
 .email-form .wpcf7 p:nth-child(3) {
