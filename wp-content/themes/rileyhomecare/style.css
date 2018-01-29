@@ -631,11 +631,11 @@ body.et_right_sidebar .content-column.one_half {
 	float: left;
 	display: inline-block;
 	line-height: 30px;
+	background: #fff;
 }
 
 .email-form .wpcf7 p:nth-child(2) input {
 	font-size: 13px;
-	height: 30px;
 }
 
 .email-form .wpcf7 p:nth-child(3) {
