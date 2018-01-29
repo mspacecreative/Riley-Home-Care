@@ -633,8 +633,6 @@ body.et_right_sidebar .content-column.one_half {
 	height: 30px;
 	margin-top: 0;
 	float: left;
-	display: inline-block;
-	line-height: 30px;
 	background: #fff;
 }
 
