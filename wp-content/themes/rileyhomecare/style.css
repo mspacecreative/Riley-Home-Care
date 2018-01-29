@@ -641,6 +641,10 @@ body.et_right_sidebar .content-column.one_half {
 	font-family: "proxima-nova", Proxima Nova, sans-serif;
 }
 
+.email-form .wpcf7 p:nth-child(3) input {
+	line-height: 30px;
+}
+
 .email-form .wpcf7 p:nth-child(3) {
 	width: 35%;
 	margin-top: 0;
