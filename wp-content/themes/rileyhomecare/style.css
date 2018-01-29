@@ -422,6 +422,7 @@ p:last-of-type {
 	width: 100%;
 	display: inline-block;
 	vertical-align: middle;
+	height: 30px;
 }
 
 .wpcf7 p {
@@ -434,7 +435,7 @@ p:last-of-type {
 	font-size: 17px;
 	font-weight: bold;
 	border: none;
-	padding: 8px 15px;
+	padding: 0;
 	line-height: inherit;
 }
 
