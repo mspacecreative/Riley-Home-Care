@@ -636,7 +636,7 @@ body.et_right_sidebar .content-column.one_half {
 
 .email-form .wpcf7 p:nth-child(2) input {
 	font-size: 12px;
-	padding: 0;
+	padding: 1px;
 	display: table-cell;
 	vertical-align: middle;
 	font-family: "proxima-nova", Proxima Nova, sans-serif;
