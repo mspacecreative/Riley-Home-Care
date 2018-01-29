@@ -636,6 +636,7 @@ body.et_right_sidebar .content-column.one_half {
 	margin-top: 0;
 	float: right;
 	display: block;
+	line-height: 30px;
 }
 
 @media (min-width: 800px) and (max-width: 1024px) and (orientation: landscape) {
