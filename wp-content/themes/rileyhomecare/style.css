@@ -417,7 +417,7 @@ p:last-of-type {
 #subscribe-button {
 	background-image: url(img/subscribe-button.png);
 	background-repeat: no-repeat;
-	background-size: cover;
+	background-size: contain;
 	font-size: 0;
 	background-position: center center;
 	width: 100%;
