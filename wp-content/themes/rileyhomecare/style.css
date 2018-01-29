@@ -627,6 +627,7 @@ body.et_right_sidebar .content-column.one_half {
 	height: 30px;
 	margin-top: 0;
 	float: left;
+	display: block;
 }
 
 .email-form .wpcf7 p:nth-child(3) {
@@ -634,6 +635,7 @@ body.et_right_sidebar .content-column.one_half {
 	height: 30px;
 	margin-top: 0;
 	float: right;
+	display: block;
 }
 
 @media (min-width: 800px) and (max-width: 1024px) and (orientation: landscape) {
