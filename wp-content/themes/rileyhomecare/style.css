@@ -626,6 +626,7 @@ body.et_right_sidebar .content-column.one_half {
 
 .email-form .wpcf7 p:nth-child(3) {
 	width: 35%;
+	height: 30px;
 }
 
 @media (min-width: 800px) and (max-width: 1024px) and (orientation: landscape) {
