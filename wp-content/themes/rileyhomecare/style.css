@@ -640,6 +640,7 @@ body.et_right_sidebar .content-column.one_half {
 	padding: 0 10px;
 	display: inline-block;
 	vertical-align: middle;
+	font-family: "proxima-nova", Proxima Nova, sans-serif;
 }
 
 .email-form .wpcf7 p:nth-child(3) {
