@@ -641,12 +641,15 @@ body.et_right_sidebar .content-column.one_half {
 	padding: 0 10px;
 }
 
+.email-form .wpcf7 p:nth-child(3) input {
+	line-height: 30px;
+	padding: 0 10px;
+}
+
 .email-form .wpcf7 p:nth-child(3) {
 	width: 35%;
 	margin-top: 0;
 	float: right;
-	display: inline-block;
-	line-height: 30px;
 }
 
 @media (min-width: 800px) and (max-width: 1024px) and (orientation: landscape) {
