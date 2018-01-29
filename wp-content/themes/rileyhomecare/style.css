@@ -368,11 +368,12 @@ nav li a {
 	border-radius:0;
 }
 
-.wpcf7-submit {
+.contact_form .wpcf7 input.wpcf7-submit {
 	background: #84b756;
 	font-family: "myriad-pro-condensed", 'Myriad Pro', sans-serif;
 	text-transform: uppercase;
 	color: #fff;
+	padding: 8px 15px;
 }
 
 p:last-of-type {
@@ -508,14 +509,14 @@ p:last-of-type {
 
 @media (min-width: 812px) {
 
-.wpcf7 p:nth-child(2), .wpcf7 p:nth-child(3) {
+.contact_form .wpcf7 p:nth-child(2), .contact_form .wpcf7 p:nth-child(3) {
 	float: left;
 	width: 49%;
 	margin-right: 2%;
 	margin-top: 0;
 }
 
-.wpcf7 p:nth-child(3) {
+.contact_form .wpcf7 p:nth-child(3) {
 	margin-right: 0;
 }
 }
@@ -625,11 +626,13 @@ body.et_right_sidebar .content-column.one_half {
 .email-form .wpcf7 p:nth-child(2) {
 	width: 65%;
 	height: 30px;
+	margin-top: 0;
 }
 
 .email-form .wpcf7 p:nth-child(3) {
 	width: 35%;
 	height: 30px;
+	margin-top: 0;
 }
 
 @media (min-width: 800px) and (max-width: 1024px) and (orientation: landscape) {
