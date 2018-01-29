@@ -638,6 +638,8 @@ body.et_right_sidebar .content-column.one_half {
 .email-form .wpcf7 p:nth-child(2) input {
 	font-size: 12px;
 	padding: 0 10px;
+	display: inline-block;
+	vertical-align: middle;
 }
 
 .email-form .wpcf7 p:nth-child(3) {
