@@ -414,19 +414,6 @@ p:last-of-type {
 	
 }
 
-#subscribe-button {
-	background-image: url(img/subscribe-button.png);
-	background-color: #84b756;
-	background-repeat: no-repeat;
-	background-size: 100%;
-	font-size: 0;
-	background-position: center center;
-	width: 100%;
-	height: 32px;
-	display: table-cell;
-	vertical-align: middle;
-}
-
 .wpcf7 p {
 	margin-bottom: 2%;
 	margin-top: 2%;
@@ -611,8 +598,8 @@ body.et_right_sidebar .content-column.one_half {
 	margin-top: 15px;
 }
 
-.email-form {
-	box-sizing: border-box!important;
+.email-form table {
+	max-width: 320px;
 }
 
 .email-form .wpcf7:after {
@@ -621,38 +608,36 @@ body.et_right_sidebar .content-column.one_half {
 	content: '';
 }
 
-.email-form .wpcf7 p {
-	margin-right: 0;
-	margin-bottom: 0;
-	padding-bottom: 0;
+.email-form td.email-input {
+	width: 60%;
+	vertical-align: top;
+	padding: 0;
+	height: 30px;
 }
 
-.email-form .wpcf7 p:nth-child(2) {
-	width: 65%;
-	margin-top: 0;
-	float: left;
-	background: #fff;
+.email-form td.submit-input {
+	width: 40%;
+	position: relative;
+	height: 30px;
+	padding: 0;
 }
 
-.email-form .wpcf7 p:nth-child(2) input {
-	font-size: 12px;
+.email-form td.email-input input {
 	padding: 0 10px;
-	display: table-cell;
-	vertical-align: middle;
-	font-family: "proxima-nova", Proxima Nova, sans-serif;
-	line-height: 32px;
+	height: 30px;
+	font-size: 13px;
 }
 
-.email-form .wpcf7 p:nth-child(3) {
-	width: 35%;
-	margin-top: 0;
-	float: right;
-	display: table;
-}
-
-span.your-email {
-	display: table;
-	height: 32px;
+#subscribe-button {
+	background-image: url(img/subscribe-button.png);
+	background-repeat: no-repeat;
+	background-size: cover;
+	font-size: 0;
+	background-position: center center;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
 }
 
 @media (min-width: 800px) and (max-width: 1024px) and (orientation: landscape) {
