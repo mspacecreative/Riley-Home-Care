@@ -25,6 +25,10 @@
 	<!--[if lt IE 9]>
 	<script src="<?php echo esc_url( $template_directory_uri . '/js/html5.js"' ); ?>" type="text/javascript"></script>
 	<![endif]-->
+	
+	<!-- FAVICON AND TOUCH ICONS -->
+	<link href="<?php echo get_stylesheet_directory_uri(); ?>/img/favicon.png" rel="shortcut icon">
+	<link href="<?php echo get_stylesheet_directory_uri(); ?>/img/favicon.png" rel="apple-touch-icon-precomposed">
 
 	<script type="text/javascript">
 		document.documentElement.className = 'js';
