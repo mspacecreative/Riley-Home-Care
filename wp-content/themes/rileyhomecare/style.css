@@ -152,7 +152,8 @@ h2 {
 }
 
 #logo {
-	max-height: 74%;
+	max-height: none;
+	max-width: 300px;
 }
 
 #services-section {
@@ -336,6 +337,23 @@ nav li a {
 	background-position: center;
 }
 
+#top-menu {
+	display: table;
+}
+
+#top-menu li {
+	display: table-cell;
+	vertical-align: middle;
+}
+
+.et_header_style_left #et-top-navigation {
+	padding-top: 0;
+}
+
+.et_header_style_left #et-top-navigation nav>ul>li>a {
+	padding-bottom: 0;
+}
+
 #main-header .container, #main-footer .container {
 	max-width: 1280px;
 }
@@ -348,6 +366,16 @@ nav li a {
 	background: #000e50;
 	z-index: 3;
 	position: relative;
+}
+
+.et_header_style_left .logo_container {
+	position: relative;
+	float: left;
+	width: auto;
+}
+
+#logo {
+	padding: 10px 0;
 }
 
 #main-footer p, #main-footer a {
@@ -440,16 +468,16 @@ p:last-of-type {
 	height: 350px;
 }
 
+.et_header_style_left #logo {
+	max-width: 300px;
+}
+
 .et_pb_divider_hidden {
 	height: 0;
 }
 
 .et_right_sidebar .et_pb_row .et_pb_column {
 	margin-bottom: 0!important;
-}
-
-#logo {
-	max-height: 50%;
 }
 
 .et_pb_section {
@@ -473,24 +501,6 @@ p:last-of-type {
 
 .hero {
 	height: 250px;
-}
-}
-
-@media (min-width: 701px) and (max-width: 1080px) {
-
-.et_header_style_left #logo{
-	max-width: 35%;
-}
-}
-
-@media (max-width: 1080px) {
-
-.et_header_style_left .logo_container {
-	position: relative;
-}
-
-#logo {
-	padding: 10px 0;
 }
 }
 
@@ -658,4 +668,9 @@ body.et_right_sidebar .content-column.one_half {
 .email-form .wpcf7 p:nth-child(3) {
 	width: 50%;
 }
+}
+
+#main-header.nav-up, .hamburger.nav-up {
+	transition: 0.5s ease-in-out;
+	transform: translateY(-80px);
 }

@@ -15,7 +15,7 @@
  
  function addPlugin() {
  	ob_start(); ?>
- <button class="hamburger hamburger--squeeze" type="button">
+ <button class="hamburger hamburger--squeeze nav-down" type="button">
  	 <span class="hamburger-box">
  	    <span class="hamburger-inner"></span>
  	 </span>

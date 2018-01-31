@@ -37,7 +37,7 @@
 	$product_tour_enabled = et_builder_is_product_tour_enabled();
 	$page_container_style = $product_tour_enabled ? ' style="padding-top: 0px;"' : ''; ?>
 	
-	<header id="main-header" data-height-onload="<?php echo esc_attr( et_get_option( 'menu_height', '66' ) ); ?>">
+	<header class="nav-down" id="main-header" data-height-onload="<?php echo esc_attr( et_get_option( 'menu_height', '66' ) ); ?>">
 				<div class="container clearfix et_menu_container">
 				<?php
 					$logo = ( $user_logo = et_get_option( 'divi_logo' ) ) && '' != $user_logo
