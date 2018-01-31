@@ -1,3 +1,10 @@
+// REMOVE EMPTY P TAGS
+$('p').each(function() {
+    var $this = $(this);
+    if($this.html().replace(/\s|&nbsp;/g, '').length == 0)
+        $this.remove();
+});
+
 if($.trim($(".et-social-icons").html())=='') {
 	$('.et-social-icons').css('margin', '0');
 }

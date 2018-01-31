@@ -179,6 +179,20 @@ h2 {
 	background-size: 100%;
 }
 
+#careers:before {
+	position: absolute;
+	bottom: -50px;
+	right: 0;
+	z-index: 1;
+	width: 615px;
+	height: 150%;
+	background-image: url(img/riley-home-care-careers.png);
+	background-repeat: no-repeat;
+	content: '';
+	background-position: bottom right;
+	background-size: 100%;
+}
+
 #foot-care-section:before {
 	position: absolute;
 	bottom: -50px;
@@ -348,6 +362,7 @@ nav li a {
 
 .et_header_style_left #et-top-navigation {
 	padding-top: 0;
+	padding-left: 0;
 }
 
 .et_header_style_left #et-top-navigation nav>ul>li>a {
@@ -406,6 +421,11 @@ nav li a {
 
 p:last-of-type {
 	margin-bottom: 0;
+}
+
+.green-bg-block a {
+	color: #fff;
+	font-weight: bold;
 }
 
 .email-form p:last-of-type {
@@ -593,9 +613,25 @@ body.et_right_sidebar .content-column.one_half {
 }
 }
 
+.green-bg-block .content-column:first-child p {
+	margin-top: 0;
+}
+
 @media (min-width: 960px) {
 
 #personal-support .et_pb_text_inner .one_half {
+	width: 38%;
+}
+
+.green-bg-block p {
+	margin-top: 0;
+}
+
+.careers .green-bg-block .one_half:first-child {
+	width: 58%;
+}
+
+.careers .green-bg-block .one_half.last_column {
 	width: 38%;
 }
 
