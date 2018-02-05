@@ -718,3 +718,8 @@ body.et_right_sidebar .content-column.one_half {
 #personal-support {
 	overflow: hidden;
 }
+
+#colour-cta .et_pb_text_inner {
+	max-width: 550px;
+	margin: auto;
+}
