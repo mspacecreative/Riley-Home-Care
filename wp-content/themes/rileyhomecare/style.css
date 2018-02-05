@@ -419,6 +419,10 @@ nav li a {
 	padding: 8px 15px;
 }
 
+.contact_form .wpcf7-submit {
+	width: auto;
+}
+
 p:last-of-type {
 	margin-bottom: 0;
 }
