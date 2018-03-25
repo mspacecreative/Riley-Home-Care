@@ -239,16 +239,12 @@ if ( ! function_exists( 'et_update_option' ) ) {
 		global $et_theme_options, $shortname;
 
 		if ( $is_new_global_setting && '' !== $global_setting_main_name && '' !== $global_setting_sub_name ) {
-			$global_setting = get_option( $global_setting_main_name );
-
-			if ( ! $global_setting ) {
-				$global_setting = array();
-			}
+			$global_setting = get_option( $global_setting_main_name, array() );
 
 			$global_setting[ $global_setting_sub_name ] = $new_value;
 
-			$option_name = $global_setting_main_name;
-			$new_value   = $global_setting;
+			update_option( $global_setting_main_name, $global_setting );
+
 		} else if ( et_options_stored_in_one_row() ) {
 			$et_theme_options_name = 'et_' . $shortname;
 
@@ -257,11 +253,11 @@ if ( ! function_exists( 'et_update_option' ) ) {
 			}
 			$et_theme_options[$option_name] = $new_value;
 
-			$option_name = $et_theme_options_name;
-			$new_value = $et_theme_options;
-		}
+			update_option( $et_theme_options_name, $et_theme_options );
 
-		update_option( $option_name, $new_value );
+		} else {
+			update_option( $option_name, $new_value );
+		}
 	}
 
 }

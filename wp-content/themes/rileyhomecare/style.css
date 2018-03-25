@@ -221,6 +221,11 @@ h2 {
 	right: 0;
 }
 
+.service-icon img {
+	max-width: 60px;
+	margin: 0 0 15px;
+}
+
 #personal-support:before {
 	position: absolute;
 	z-index: 1;
@@ -278,11 +283,9 @@ h1.entry-title {
 	content: '';
 	top: 0;
 	left: 0;
-	background: url(img/dust_scratches.png);
-	background-repeat: repeat;
+	background: url(img/dust_scratches.png) repeat;
 	z-index: 1;
-	width: 100%;
-	height: 400px;
+	width: 400px;
 	opacity: .5;
 }
 
@@ -296,6 +299,11 @@ body.et_right_sidebar .one_half.last_column {
 
 .home-services-section {
 	overflow: hidden;
+}
+
+.home-services-section h3 {
+	font-weight: bold;
+	font-size: 24px;
 }
 
 .white-transparent-overlay:before {
@@ -315,6 +323,56 @@ nav li a {
 
 .mobile-nav li a {
 	font-size: 18px;
+}
+
+.slick-bg {
+	overflow: hidden;
+}
+
+.slick-bg .slick-dots {
+	bottom: 15px;
+}
+
+.slick-bg .slick-dots li button:before {
+	font-size: 25px;
+}
+
+.slick-bg:hover .slick-next {
+	right: 15px;
+	transition: 0.25s ease-in-out;
+}
+
+.slick-bg:hover .slick-prev {
+	left: 15px;
+	transition: 0.25s ease-in-out;
+}
+
+.slick-bg .slick-next {
+	right: -30px;
+	transition: 0.25s ease-in-out;
+	width: auto;
+	height: auto;
+}
+
+.slick-bg .slick-prev {
+	left: -30px;
+	transition: 0.25s ease-in-out;
+	z-index: 2;
+	width: auto;
+	height: auto;
+}
+
+.slick-prev:before, .slick-next:before {
+  font-family: fontAwesome;
+  font-size: 60px;
+}
+
+.slick-prev:before {
+    content: '\f104';
+}
+
+.slick-next:before {
+    content: '\f105';
 }
 
 .bottom-shadow:after {
@@ -339,6 +397,76 @@ nav li a {
 	color: #fff;
 }
 
+.service_button {
+	cursor: pointer;
+}
+
+.info-window {
+	opacity: 0;
+	visibility: hidden;
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	top: 0;
+	left: 0;
+	transition: all 0.5s ease-in-out;
+	z-index: 1;
+}
+
+.et_pb_row_inner_0 .service_button:nth-child(1) .info-window, .et_pb_row_inner_1 .service_button:nth-child(2) .info-window {
+	background: #f5f5f5;
+}
+
+.et_pb_row_inner_1 .service_button:nth-child(1) .info-window, .et_pb_row_inner_0 .service_button:nth-child(2) .info-window {
+	background: #fff;
+}
+
+.info-window > div {
+	display: table;
+	height: 100%;
+}
+
+.info-window ul, .info-window-text p {
+	list-style: none;
+	text-align: center;
+	margin: 0;
+	display: table-cell;
+	vertical-align: middle;
+	padding: 0 25px;
+	font-size: 16px;
+}
+
+.info-window ul li {
+	display: inline-block;
+	letter-spacing: -0.02em;
+}
+
+.info-window ul li:after {
+	content: ' • ';
+}
+
+.info-window ul li:last-child:after {
+	display: none;
+}
+
+.info-window.active {
+	transition: all 0.5s ease-in-out;
+	opacity: 1;
+	visibility: visible;
+}
+
+.services-title {
+	background: #0099cc;
+	background: radial-gradient(circle, #afcbe0, #0099cc);
+}
+
+.services-title h1 {
+	padding: 20px;
+	font-size: 35px;
+	font-weight: 700;
+	color: #fff;
+}
+
 .bottom-shadow-top:after {
 	position: absolute;
 	content:'';
@@ -349,6 +477,25 @@ nav li a {
 	left: 0;
 	z-index: 10;
 	background-position: center;
+}
+
+.timeline-bg {
+	background-size: cover!important;
+	background-repeat: no-repeat!important;
+	background-position: center!important;
+	height: 100%;
+}
+
+.slick-bg {
+	margin-bottom: 0!important;
+}
+
+#service-slider > div, #service-slider {
+	height: 100%;
+}
+
+.slick-bg, .slick-track, .slick-list {
+	height: 100%;
 }
 
 #top-menu {
@@ -362,7 +509,7 @@ nav li a {
 
 .et_header_style_left #et-top-navigation {
 	padding-top: 0;
-	padding-left: 0;
+	padding-left: 0!important;
 }
 
 .et_header_style_left #et-top-navigation nav>ul>li>a {
@@ -492,6 +639,10 @@ p:last-of-type {
 	height: 350px;
 }
 
+.timeline-bg {
+	height: 400px;
+}
+
 .et_header_style_left #logo {
 	max-width: 300px;
 }
@@ -525,6 +676,13 @@ p:last-of-type {
 
 .hero {
 	height: 250px;
+}
+}
+
+@media (min-width: 980px) and (max-width: 1080px) {
+
+.info-window ul, .info-window-text p {
+	line-height: 21px;
 }
 }
 

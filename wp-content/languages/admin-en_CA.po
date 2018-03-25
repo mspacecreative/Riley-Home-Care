@@ -2822,6 +2822,25 @@ msgstr "Number of items per page:"
 msgid "Close details dialog"
 msgstr "Close details dialog"
 
+#: wp-admin/nav-menus.php:547
+msgid "To add a custom link, <strong>expand the Custom Links section, enter a URL and link text, and click Add to Menu</strong>"
+msgstr "To add a custom link, <strong>expand the Custom Links section, enter a URL and link text, and click Add to Menu</strong>"
+
+#. translators: date and time format for exact current time, mainly about
+#. timezones, see https://secure.php.net/date
+#: wp-admin/options-general.php:21
+msgctxt "timezone date format"
+msgid "Y-m-d H:i:s"
+msgstr "Y-m-d H:i:s"
+
+#: wp-admin/theme-install.php:332
+msgid "This theme has not been rated yet."
+msgstr "This theme has not been rated yet."
+
+#: wp-admin/update-core.php:431
+msgid "New translations are available."
+msgstr "New translations are available."
+
 #. translators: Do not translate USERNAME, URL_DELETE, SITE_NAME: those are
 #. placeholders.
 #: wp-admin/ms-delete-site.php:48
@@ -2859,25 +2878,6 @@ msgstr ""
 "Thanks for using the site,\n"
 "Webmaster\n"
 "###SITE_NAME###"
-
-#: wp-admin/nav-menus.php:547
-msgid "To add a custom link, <strong>expand the Custom Links section, enter a URL and link text, and click Add to Menu</strong>"
-msgstr "To add a custom link, <strong>expand the Custom Links section, enter a URL and link text, and click Add to Menu</strong>"
-
-#. translators: date and time format for exact current time, mainly about
-#. timezones, see https://secure.php.net/date
-#: wp-admin/options-general.php:21
-msgctxt "timezone date format"
-msgid "Y-m-d H:i:s"
-msgstr "Y-m-d H:i:s"
-
-#: wp-admin/theme-install.php:332
-msgid "This theme has not been rated yet."
-msgstr "This theme has not been rated yet."
-
-#: wp-admin/update-core.php:431
-msgid "New translations are available."
-msgstr "New translations are available."
 
 #: wp-admin/includes/template.php:1760
 msgid "Front Page"
@@ -6104,6 +6104,22 @@ msgstr "Add Existing User"
 msgid "Role"
 msgstr "Role"
 
+#: wp-admin/menu.php:227 wp-admin/menu.php:229 wp-admin/user-edit.php:215
+#: wp-admin/users.php:493
+msgctxt "user"
+msgid "Add New"
+msgstr "Add New"
+
+#: wp-admin/menu.php:225
+msgid "All Users"
+msgstr "All Users"
+
+#: wp-admin/includes/class-wp-theme-install-list-table.php:408
+#: wp-admin/includes/deprecated.php:1381 wp-admin/includes/theme.php:699
+#: wp-admin/theme-install.php:290 wp-admin/theme-install.php:310
+msgid "Install"
+msgstr "Install"
+
 #: wp-admin/comment.php:50 wp-admin/custom-background.php:96
 #: wp-admin/custom-header.php:122 wp-admin/edit-comments.php:184
 #: wp-admin/edit-form-advanced.php:391 wp-admin/edit-form-advanced.php:406
@@ -6124,12 +6140,6 @@ msgstr "Role"
 msgid "For more information:"
 msgstr "For more information:"
 
-#: wp-admin/menu.php:227 wp-admin/menu.php:229 wp-admin/user-edit.php:215
-#: wp-admin/users.php:493
-msgctxt "user"
-msgid "Add New"
-msgstr "Add New"
-
 #: wp-admin/edit-tag-form.php:264
 #: wp-admin/includes/class-wp-links-list-table.php:82
 #: wp-admin/includes/class-wp-links-list-table.php:318
@@ -6147,16 +6157,6 @@ msgstr "Add New"
 #: wp-admin/themes.php:499 wp-admin/widgets.php:320
 msgid "Delete"
 msgstr "Delete"
-
-#: wp-admin/menu.php:225
-msgid "All Users"
-msgstr "All Users"
-
-#: wp-admin/includes/class-wp-theme-install-list-table.php:408
-#: wp-admin/includes/deprecated.php:1381 wp-admin/includes/theme.php:699
-#: wp-admin/theme-install.php:290 wp-admin/theme-install.php:310
-msgid "Install"
-msgstr "Install"
 
 #: wp-admin/menu.php:206
 msgid "Plugins %s"
@@ -6733,13 +6733,13 @@ msgstr "Remember to click Update Media to save metadata entered or changed."
 msgid "Note that you crop the image by clicking on it (the Crop icon is already selected) and dragging the cropping frame to select the desired part. Then click Save to retain the cropping."
 msgstr "Note that you crop the image by clicking on it (the Crop icon is already selected) and dragging the cropping frame to select the desired part. Then click Save to retain the cropping."
 
-#: wp-admin/edit-form-advanced.php:417 wp-admin/media.php:76
-msgid "For images only, you can click on Edit Image under the thumbnail to expand out an inline image editor with icons for cropping, rotating, or flipping the image as well as for undoing and redoing. The boxes on the right give you more options for scaling the image, for cropping it, and for cropping the thumbnail in a different way than you crop the original image. You can click on Help in those boxes to get more information."
-msgstr "For images only, you can click on Edit Image under the thumbnail to expand out an inline image editor with icons for cropping, rotating, or flipping the image as well as for undoing and redoing. The boxes on the right give you more options for scaling the image, for cropping it, and for cropping the thumbnail in a different way than you crop the original image. You can click on Help in those boxes to get more information."
-
 #: wp-admin/media.php:75
 msgid "This screen allows you to edit five fields for metadata in a file within the media library."
 msgstr "This screen allows you to edit five fields for metadata in a file within the media library."
+
+#: wp-admin/edit-form-advanced.php:417 wp-admin/media.php:76
+msgid "For images only, you can click on Edit Image under the thumbnail to expand out an inline image editor with icons for cropping, rotating, or flipping the image as well as for undoing and redoing. The boxes on the right give you more options for scaling the image, for cropping it, and for cropping the thumbnail in a different way than you crop the original image. You can click on Help in those boxes to get more information."
+msgstr "For images only, you can click on Edit Image under the thumbnail to expand out an inline image editor with icons for cropping, rotating, or flipping the image as well as for undoing and redoing. The boxes on the right give you more options for scaling the image, for cropping it, and for cropping the thumbnail in a different way than you crop the original image. You can click on Help in those boxes to get more information."
 
 #: wp-admin/user-new.php:335
 msgid "Email or Username"
@@ -7094,13 +7094,13 @@ msgstr "Home: %s"
 msgid "ERROR:"
 msgstr "ERROR:"
 
-#: wp-admin/import.php:23
-msgid "This screen lists links to plugins to import data from blogging/content management platforms. Choose the platform you want to import from, and click Install Now when you are prompted in the popup window. If your platform is not listed, click the link to search the plugin directory for other importer plugins to see if there is one for your platform."
-msgstr "This screen lists links to plugins to import data from blogging/content management platforms. Choose the platform you want to import from, and click Install Now when you are prompted in the popup window. If your platform is not listed, click the link to search the plugin directory for other importer plugins to see if there is one for your platform."
-
 #: wp-admin/export.php:49
 msgid "Once generated, your WXR file can be imported by another WordPress site or by another blogging platform able to access this format."
 msgstr "Once generated, your WXR file can be imported by another WordPress site or by another blogging platform able to access this format."
+
+#: wp-admin/import.php:23
+msgid "This screen lists links to plugins to import data from blogging/content management platforms. Choose the platform you want to import from, and click Install Now when you are prompted in the popup window. If your platform is not listed, click the link to search the plugin directory for other importer plugins to see if there is one for your platform."
+msgstr "This screen lists links to plugins to import data from blogging/content management platforms. Choose the platform you want to import from, and click Install Now when you are prompted in the popup window. If your platform is not listed, click the link to search the plugin directory for other importer plugins to see if there is one for your platform."
 
 #: wp-admin/link-manager.php:55
 msgid "You can customize the display of this screen using the Screen Options tab and/or the dropdown filters above the links table."

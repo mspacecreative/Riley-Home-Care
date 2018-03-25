@@ -1212,33 +1212,7 @@
 			window.et_pb_init_nav_menu( $et_top_menu );
 
 			$et_sticky_image.each( function() {
-				var $this_el            = $(this),
-					$row                = $this_el.closest('.et_pb_row'),
-					$section            = $row.closest('.et_pb_section'),
-					$column             = $this_el.closest( '.et_pb_column' ),
-					sticky_class        = 'et_pb_section_sticky',
-					sticky_mobile_class = 'et_pb_section_sticky_mobile';
-
-				// If it is not in the last row, continue
-				if ( ! $row.is( ':last-child' ) ) {
-					return true;
-				}
-
-				// Make sure sticky image is the last element in the column
-				if ( ! $this_el.is( ':last-child' ) ) {
-					return true;
-				}
-
-				// If it is in the last row, find the parent section and attach new class to it
-				if ( ! $section.hasClass( sticky_class ) ) {
-					$section.addClass( sticky_class );
-				}
-
-				$column.addClass( 'et_pb_row_sticky' );
-
-				if ( ! $section.hasClass( sticky_mobile_class ) && $column.is( ':last-child' ) ) {
-					$section.addClass( sticky_mobile_class );
-				}
+				window.et_pb_apply_sticky_image_effect($(this));
 			} );
 
 			if ( et_is_mobile_device ) {
@@ -3124,7 +3098,7 @@
 				$el.css("margin-left", $video_width_negative );
 			}
 
-			window.et_fix_slider_height = function( $slider ) {
+			function et_fix_slider_height( $slider ) {
 				var $this_slider = $slider || $et_pb_slider;
 
 				if ( ! $this_slider || ! $this_slider.length ) {
@@ -3203,7 +3177,25 @@
 						.children( 'img' )
 						.addClass( 'active' );
 				} );
-			};
+			}
+			var debounced_et_fix_slider_height = {};
+
+			// This function can end up being called a lot of times and it's quite expensive in terms of cpu due to
+			// recalculating styles. Debouncing it (VB only) for performances reasons.
+			window.et_fix_slider_height = !is_frontend_builder ? et_fix_slider_height : function($slider) {
+				var $this_slider = $slider || $et_pb_slider;
+
+				if ( ! $this_slider || ! $this_slider.length ) {
+					return;
+				}
+
+				// Create a debounced function per slider
+				var address = $this_slider.data('address');
+				if (!debounced_et_fix_slider_height[address]) {
+					debounced_et_fix_slider_height[address] = window.et_pb_debounce(et_fix_slider_height, 100);
+				}
+				debounced_et_fix_slider_height[address]($slider);
+			}
 
 			/**
 			 * Add conditional class to prevent unwanted dropdown nav
@@ -3447,12 +3439,15 @@
 				et_waypoint( $video_background_wrapper, {
 					offset: '100%',
 					handler : function( direction ) {
+						// This has to be placed inside handler to make it works with changing class name in VB
+						var is_play_outside_viewport = $video_background_wrapper.hasClass( 'et_pb_video_play_outside_viewport' );
+
 						if ( $this_video_background.is(':visible') && direction === 'down' ) {
 							if ( this_video_background.paused && ! onplaying ) {
 								this_video_background.play();
 							}
 						} else if ( $this_video_background.is(':visible') && direction === 'up' ) {
-							if ( ! this_video_background.paused && ! onpause ) {
+							if ( ! this_video_background.paused && ! onpause && ! is_play_outside_viewport ) {
 								this_video_background.pause();
 							}
 						}
@@ -3472,12 +3467,15 @@
 						return toggle_offset * (-1);
 					},
 					handler : function( direction ) {
+						// This has to be placed inside handler to make it works with changing class name in VB
+						var is_play_outside_viewport = $video_background_wrapper.hasClass( 'et_pb_video_play_outside_viewport' );
+
 						if ( $this_video_background.is(':visible') && direction === 'up' ) {
 							if ( this_video_background.paused && ! onplaying ) {
 								this_video_background.play();
 							}
 						} else if ( $this_video_background.is(':visible') && direction === 'down' ) {
-							if ( ! this_video_background.paused && ! onpause ) {
+							if ( ! this_video_background.paused && ! onpause && ! is_play_outside_viewport ) {
 								this_video_background.pause();
 							}
 						}
@@ -3635,7 +3633,7 @@
 						if ( true === waypoints_enabled ) {
 							if ( $animated.hasClass('et_pb_circle_counter') ) {
 								et_waypoint( $animated, {
-									offset: '65%',
+									offset: '100%',
 									handler: function() {
 										if ( $(this.element).data( 'PieChartHasLoaded' ) || typeof $(this.element).data('easyPieChart') === 'undefined' ) {
 											return;
@@ -3666,7 +3664,7 @@
 								});
 							} else if ( $animated.hasClass('et_pb_number_counter') ) {
 								et_waypoint( $animated, {
-									offset: '75%',
+									offset: '100%',
 									handler: function() {
 										$(this.element).data('easyPieChart').update( $(this.element).data('number-value') );
 										et_animate_element( $(this.element) );
@@ -3969,26 +3967,11 @@
 				if ( $.fn.waypoint && 'yes' !== et_pb_custom.ignore_waypoints ) {
 					et_process_animation_data( true );
 
-					et_waypoint( $( '.et_pb_counter_container, .et-waypoint' ), {
-						offset: '75%',
-						handler: function() {
-							$(this.element).addClass( 'et-animated' );
-						}
-					} );
-
-					// fallback to 'bottom-in-view' offset, to make sure element become visible when it's on the bottom of page and other offsets are not triggered
-					et_waypoint( $( '.et_pb_counter_container, .et-waypoint' ), {
-						offset: 'bottom-in-view',
-						handler: function() {
-							$(this.element).addClass( 'et-animated' );
-						}
-					} );
-
 					// get all of our waypoint things.
 					var modules = $( '.et_pb_counter_container, .et-waypoint' );
 					modules.each(function(){
 						et_waypoint( $(this), {
-							offset: et_get_offset( $(this), '75%' ),
+							offset: et_get_offset( $(this), '100%' ),
 							handler: function() {
 								// what actually triggers the animation.
 								$(this.element).addClass( 'et-animated' );
@@ -4006,7 +3989,7 @@
 							}
 
 							et_waypoint( $this_counter, {
-								offset: et_get_offset( $(this), '65%'),
+								offset: et_get_offset( $(this), '100%'),
 								handler: function() {
 									if ( $this_counter.data( 'PieChartHasLoaded' ) || typeof $this_counter.data('easyPieChart') === 'undefined' ) {
 										return;
@@ -4030,7 +4013,7 @@
 							}
 
 							et_waypoint( $this_counter, {
-								offset: et_get_offset( $(this), '75%' ),
+								offset: et_get_offset( $(this), '100%' ),
 								handler: function() {
 									$this_counter.data('easyPieChart').update( $this_counter.data('number-value') );
 								}
@@ -4446,7 +4429,7 @@
 						var contentHeight = sectionHeight - $header_image.outerHeight( true );
 
 						if ( contentHeight > 0 ) {
-							$header_content.css('min-height', contentHeight + 'px' );
+							$header_content.css('min-height', contentHeight + 'px' ).css('height', '10px' /*fixes IE11 render*/);
 						}
 					}
 
@@ -4835,7 +4818,7 @@
 				$current_module.fitVids( { customSelector: "iframe[src^='http://www.hulu.com'], iframe[src^='http://www.dailymotion.com'], iframe[src^='http://www.funnyordie.com'], iframe[src^='https://embed-ssl.ted.com'], iframe[src^='http://embed.revision3.com'], iframe[src^='https://flickr.com'], iframe[src^='http://blip.tv'], iframe[src^='http://www.collegehumor.com']"} );
 
 				$current_module.fadeTo( 'slow', 1 );
-				
+
 				// reinit ET shortcodes.
 				window.et_shortcodes_init($current_module);
 
@@ -4856,7 +4839,7 @@
 
 				// set the relative button position to get its height correctly
 				$button.css( { 'position' : 'relative' } );
-				
+
 				if ( buttonHeight > inputHeight ) {
 					$input_field.innerHeight( buttonHeight );
 				}
@@ -4953,18 +4936,14 @@
 
 				// Listen for any field change
 				$form.on( 'change', 'input, textarea, select', function() {
-
-					// Get the check id of the element that is changed
-					var trigger_id = $(this).closest('[data-id]').data('id');
-
-					et_conditional_check( $form, trigger_id );
+					et_conditional_check( $form );
 				} );
 
 				// Conditions may be satisfied on default form state
 				et_conditional_check( $form );
 			} );
 
-			function et_conditional_check( $form, trigger_id ) {
+			function et_conditional_check( $form ) {
 				var $conditionals = $form.find('[data-conditional-logic]');
 
 				// Upon change loop all the fields that have conditional logic
@@ -4988,11 +4967,6 @@
 							var field_id    = $wrapper.data('id');
 							var field_type  = $wrapper.data('type');
 							var field_value;
-
-							// If the trigger ID is not present in the conditional logic rule there is no need to process further
-							if ( trigger_id && check_id !== trigger_id ) {
-								return;
-							}
 
 							/*
 								Check if the field wrapper is actually visible when including it in the rules check.
