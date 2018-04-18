@@ -754,6 +754,10 @@ h5 a {
 	height: 350px;
 }
 
+.et_pb_row_inner_1 .service_button:nth-child(1) .info-window {
+	background: #c4c4c4;
+}
+
 #custom_html-5 div {
 	vertical-align: -webkit-baseline-middle;
 }
