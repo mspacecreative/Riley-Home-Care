@@ -447,7 +447,7 @@ nav li a {
 	vertical-align: middle;
 	padding: 0 25px;
 	font-size: 19px;
-	font-family: "myriad-pro-condensed", MyriadPro-Cond, sans-serif!important;
+	font-family: "myriad-pro-condensed", MyriadPro-Cond, sans-serif;
 }
 
 .et_pb_button {
@@ -754,14 +754,6 @@ h5 a {
 	height: 350px;
 }
 
-.et_pb_row_inner_1 .service_button:nth-child(1) .info-window {
-	background: #f5f5f5;
-}
-
-.et_pb_row_inner_1 .service_button:nth-child(2) .info-window {
-	background: #fff;
-}
-
 #custom_html-5 div {
 	vertical-align: -webkit-baseline-middle;
 }
@@ -811,6 +803,14 @@ h5 a {
 
 #footer-widgets .footer-widget:nth-child(n), .footer-widget .fwidget {
 	margin-bottom: 25px!important;
+}
+
+.et_pb_row_inner_1 .service_button:nth-child(1) .info-window {
+	background: #f5f5f5;
+}
+
+.et_pb_row_inner_1 .service_button:nth-child(2) .info-window {
+	background: #fff;
 }
 
 #footer-widgets {
