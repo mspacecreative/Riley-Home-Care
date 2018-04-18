@@ -33,6 +33,8 @@ $(function () {
 		  autoplay: true,
 		  arrows: true
 		});
+		
+		$('.et_pb_scroll_top.et-pb-icon').insertAfter('#page-container');
 	});
 	
 	$(window).resize(function () {

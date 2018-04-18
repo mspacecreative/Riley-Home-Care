@@ -35,7 +35,19 @@ function remove_some_widgets(){
 	unregister_sidebar( 'sidebar-5' );
 }
 
+function two_third_column($atts, $content = null)
+{
+    return '<div class="two_third_gutter">' . $content . '</div>';
+}
+
+function one_third_column($atts, $content = null)
+{
+    return '<div class="one_third_gutter">' . $content . '</div>';
+}
+
 // ACTIONS
 add_action( 'wp_enqueue_scripts', 'my_theme_enqueue_styles' );
 add_action('init', 'scripts_styles');
 add_action( 'widgets_init', 'remove_some_widgets', 11 );
+add_shortcode('two_third_gutter', 'two_third_column');
+add_shortcode('one_third_gutter', 'one_third_column');
