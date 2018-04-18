@@ -453,12 +453,12 @@ nav li a {
 .et_pb_button {
 	display: inline-block;
 	text-transform: uppercase;
-	padding-top: .5em;
+	/*padding-top: .5em;*/
 }
 
-.et_pb_button:hover {
+/*.et_pb_button:hover {
 	padding-top: .5em!important;
-}
+}*/
 
 .et_pb_button:after, .et_pb_button:before {
 	line-height: .93em;
