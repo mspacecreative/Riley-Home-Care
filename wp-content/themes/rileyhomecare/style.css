@@ -681,6 +681,8 @@ p:last-of-type {
 
 h5 {
 	font-size: 20px;
+	line-height: 1.5em;
+	padding: 0 5%;
 }
 
 h5 a {
