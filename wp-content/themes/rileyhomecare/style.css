@@ -747,7 +747,7 @@ h5 a {
 
 .two_third_gutter, .one_third_gutter {
 	display: inline-block;
-	vertical-align: middle;
+	vertical-align: bottom;
 }
 }
 
