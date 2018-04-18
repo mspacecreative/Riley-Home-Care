@@ -447,7 +447,10 @@ nav li a {
 	vertical-align: middle;
 	padding: 0 25px;
 	font-size: 19px;
-	font-family: "myriad-pro-condensed", MyriadPro-Cond, sans-serif;
+}
+
+.info-window li, .info-window-text p {
+	font-family: "myriad-pro-condensed",sans-serif;
 }
 
 .et_pb_button {
